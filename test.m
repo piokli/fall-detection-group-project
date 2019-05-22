@@ -1,5 +1,5 @@
 % Accelerometer
-filename = '20190521_232942_Accelerometer.csv';
+filename = 'data\20190521_232942_Accelerometer.csv';
 
 [t_ms, X_mg, Y_mg, Z_mg] = readAcc(filename);
 
@@ -10,7 +10,7 @@ grid on;
 grid minor;
 
 % Gyroscope
-filename = '20190521_232942_Gyroscope.csv';
+filename = 'data\20190521_232942_Gyroscope.csv';
 
 [t_ms, X_dps, Y_dps, Z_dps] = readGyro(filename);
 
@@ -20,7 +20,7 @@ grid on;
 grid minor;
 
 % Magnetometer
-filename = '20190521_232942_Magnetometer.csv';
+filename = 'data\20190521_232942_Magnetometer.csv';
 
 [t_ms, X_mGa, Y_mGa, Z_mGa] = readMag(filename);
 
