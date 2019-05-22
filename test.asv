@@ -1,0 +1,29 @@
+
+filename = '20190521_232942_Accelerometer.csv';
+
+[t_ms, X_mg, Y_mg, Z_mg] = readAcc(filename);
+
+figure(1);
+plot(t_ms, X_mg, t_ms, Y_mg, t_ms, Z_mg);
+grid on;
+grid minor;
+
+
+filename = '20190521_232942_Gyroscope.csv';
+
+[t_ms, X_dps, Y_dps, Z_dps] = readGyro(filename);
+
+figure(2);
+plot(t_ms, X_dps, t_ms, Y_dps, t_ms, Z_dps);
+grid on;
+grid minor;
+
+
+filename = '20190521_232942_Gyroscope.csv';
+
+[t_ms, X_dps, Y_dps, Z_dps] = readGyro(filename);
+
+figure(2);
+plot(t_ms, X_dps, t_ms, Y_dps, t_ms, Z_dps);
+grid on;
+grid minor;

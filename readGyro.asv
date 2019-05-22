@@ -1,0 +1,22 @@
+function [t_ms, X_dps, Y_dps, Z_dps] = readGyro(filename)
+
+opts = detectImportOptions(filename);
+opts.Delimiter = ',';
+
+opts.SelectedVariableNames = 'HostTimestamp_ms_';
+t_ms = readmatrix(filename, opts);
+t_ms(:,2) = [];
+
+opts.SelectedVariableNames = 'X_dps_';
+X_mg = readmatrix(filename, opts);
+X_mg(:,2) = [];
+
+opts.SelectedVariableNames = 'Y_dps_';
+Y_mg = readmatrix(filename, opts);
+Y_mg(:,2) = [];
+
+opts.SelectedVariableNames = 'Z_dps_';
+Z_mg = readmatrix(filename, opts);
+Z_mg(:,2) = [];
+
+end
