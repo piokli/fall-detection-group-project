@@ -3,7 +3,7 @@ close all
 clc
 
 %% Get accelerometer and gyroscope data
-seria = 'seria1';
+seria = 'seria2';
 filename = sprintf('data\\%s\\Accelerometer.csv', seria);
 [t_ms_mg, X_mg, Y_mg, Z_mg] = readAcc(filename);
 
@@ -52,10 +52,27 @@ local_minimums = islocalmin(sum_acc, 'MinProminence', 0.1*G);
 local_maximums = islocalmax(sum_acc, 'MinProminence', 0.1*G);
 
 subplot(2, 1, 1);
-plot(t_ms_mg(local_minimums), sum_acc(local_minimums), '*g');
-plot(t_ms_mg(local_maximums), sum_acc(local_maximums), '*r');
+plot(t_ms_mg(local_minimums), sum_acc(local_minimums), 'og');
+plot(t_ms_mg(local_maximums), sum_acc(local_maximums), 'or');
 
 subplot(2, 1, 1);
 yline(LFT,'-.g');
 yline(UFT,'-.r');
+
+% porównanie z UFT i LFT
+for i = 1:length(sum_acc)
+   if local_maximums(i) > 0
+       if sum_acc(i) > UFT
+           plot(t_ms_mg(i), sum_acc(i), '*r')
+       end
+   end
+end
+
+for i = 1:length(sum_acc)
+   if local_minimums(i) > 0
+       if sum_acc(i) < LFT
+           plot(t_ms_mg(i), sum_acc(i), '*g')
+       end
+   end
+end
 
